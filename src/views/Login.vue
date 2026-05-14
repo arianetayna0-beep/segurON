@@ -18,7 +18,7 @@
 </template>
  
 <script setup>
-import { useSupabase } from '../composables/UseSupabase.js'
+import { useSupabase } from '../composables/useSupabase'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
  
