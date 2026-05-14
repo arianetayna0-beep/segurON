@@ -1,72 +1,52 @@
 import { createRouter, createWebHistory } from 'vue-router'
-// Importa todos os componentes das páginas
 import Home from '../views/Home.vue'
 import CadastroEPI from '../views/CadastroEPI.vue'
 import Login from '../views/Login.vue'
 import Dashboard from '../views/Dashboard.vue'
 import Estoque from '../views/Estoque.vue'
-import Entregas from '../views/Entregas.vue'
+import Entrega from '../views/Entrega.vue'
 
-// Define todas as rotas da aplicação
 const routes = [
   {
-    path: '/',           // URL raiz
+    path: '/',
     name: 'Home',
-    component: Home    // Mostra o componente Home
+    component: Home
   },
-   {
-        path: '/Cadastro',
-        name: 'Cadastro',
-        alias: '/Cadastro',
-        component: () => import('../Views/Cadastro.vue')
-    },
-    
-   {
-        path: '/Login',
-        name: 'Login',
-        alias: '/Login',
-        component: () => import('../Views/Login.vue')
-    },
   {
-        path: '/Relatorio',
-        name: 'Relatorio',
-        alias: '/Relatorio',
-        component: () => import('../Views/Relatorio.vue')
-    },
-     {
-        path: '/Dashboard',
-        alias: '/Dashboard',
-        component: Dashboard,
-        meta: { requiresAuth: true },
- 
-        children: [
-            { path: '', redirect: '/dashboard/funcionario' },
-            { path: 'entregas', name: 'entregas', component: Entregas },
-            { path: 'relatorio', name: 'relatorio', component: Relatorio },
-            { path: 'cadastro', name: 'dashboard-cadastro', component: Cadastro },
-            { path: 'funcionario', name: 'funcionario', component: Funcionario }
-        ]
-    }
- 
-
+    path: '/cadastro',
+    name: 'Cadastro',
+    component: () => import('../views/CadastroFuncionario.vue')
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/relatorio',
+    name: 'Relatorio',
+    component: () => import('../views/Relatorios.vue')
+  },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: Dashboard,
+    meta: { requiresAuth: true },
+    children: [
+      { path: '', redirect: '/dashboard/funcionario' },
+      { path: 'entregas', name: 'entregas', component: Entrega },
+      { path: 'estoque', name: 'estoque', component: Estoque },
+      { path: 'cadastro-epi', name: 'cadastro-epi', component: CadastroEPI },
+      { path: 'funcionario', name: 'funcionario', component: () => import('../views/CadastroFuncionario.vue') }
+    ]
+  }
 ]
+
 const router = createRouter({
   history: createWebHistory(),
   routes
 })
- 
-router.beforeEach(async (to) => {
-    const requiresAuth = to.matched.some(r => r.meta.requiresAuth)
-    const { data: { session } } = await supabase.auth.getSession()
- 
-    if (requiresAuth && !session) {
-        return '/login'
-    }
- 
-    return true
-})
- 
- 
+
 export default router
 
 

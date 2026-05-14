@@ -6,6 +6,7 @@
 
 <script setup>
 import AppHeader from '../components/AppHeader.vue'
+import { RouterLink } from 'vue-router';
 </script>
 
 <style scoped>
