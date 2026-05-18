@@ -1,6 +1,10 @@
 <template>
   <div class="home-content">
     <AppHeader />
+    <!-- Botão para entrar no sistema -->
+    <RouterLink to="/app" class="btn-entrar">
+      Acessar Sistema EPI
+    </RouterLink>
   </div>
 </template>
 

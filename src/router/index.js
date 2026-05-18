@@ -13,31 +13,43 @@ const routes = [
     component: Home
   },
   {
-    path: '/cadastro',
-    name: 'Cadastro',
-    component: () => import('../views/CadastroFuncionario.vue')
-  },
-  {
     path: '/login',
     name: 'Login',
     component: Login
   },
   {
-    path: '/relatorio',
-    name: 'Relatorio',
-    component: () => import('../views/Relatorios.vue')
-  },
-  {
-    path: '/dashboard',
+    path: '/app',
     name: 'Dashboard',
-    component: Dashboard,
+    component: Dashboard, // Layout com a Sidebar e o <RouterView />
     meta: { requiresAuth: true },
     children: [
-      { path: '', redirect: '/dashboard/funcionario' },
-      { path: 'entregas', name: 'entregas', component: Entrega },
+      // Quando entrar em /app, joga direto para os funcionários
+      { path: '', redirect: '/app/funcionarios' }, 
+      
+      // Bate com o link: to="/app/funcionarios"
+      { 
+        path: 'funcionarios', 
+        name: 'funcionarios', 
+        component: () => import('../views/CadastroFuncionario.vue') 
+      },
+      
+      // Bate com o link: to="/app/entregas" (Corrigido para plural!)
+      { 
+        path: 'entregas', 
+        name: 'entregas', 
+        component: Entrega 
+      },
+      
+      // Bate com o link: to="/app/relatorio"
+      { 
+        path: 'relatorio', 
+        name: 'relatorio', 
+        component: () => import('../views/Relatorios.vue') 
+      },
+      
+      // Outras rotas internas
       { path: 'estoque', name: 'estoque', component: Estoque },
-      { path: 'cadastro-epi', name: 'cadastro-epi', component: CadastroEPI },
-      { path: 'funcionario', name: 'funcionario', component: () => import('../views/CadastroFuncionario.vue') }
+      { path: 'cadastro-epi', name: 'cadastro-epi', component: CadastroEPI }
     ]
   }
 ]
@@ -48,6 +60,3 @@ const router = createRouter({
 })
 
 export default router
-
-
-
