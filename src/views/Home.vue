@@ -1,7 +1,6 @@
 <template>
   <div class="background">
     <AppHeader />
-<<<<<<< HEAD
     <div class="home-content">
       <div class="conteudo">
         <h1 class="titulo">segur<span>ON</span></h1>
@@ -12,12 +11,6 @@
       <img src="../assets/Homesite2.jpg" alt="Imagem de Segurança" class="images-section">
       <img src="../assets/Homesite1.jpg" alt="Imagem de Segurança" class="images-section">
     </div>
-=======
-    <!-- Botão para entrar no sistema -->
-    <RouterLink to="/app" class="btn-entrar">
-      Acessar Sistema EPI
-    </RouterLink>
->>>>>>> fc19855ff22ff0ae021856409a866b7684727638
   </div>
 </template>
 
