@@ -46,11 +46,12 @@ export default {
 
 .header-links {
     display: flex;
-    gap: 1rem;
+    align-items: center;
+    gap: 8rem;
 }
 
 .link:hover {
-    color: #88AB5D;
+    color: #1f9f21;
 }
 
 .buttons {

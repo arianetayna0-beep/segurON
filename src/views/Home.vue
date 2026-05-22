@@ -29,7 +29,7 @@ import { RouterLink } from 'vue-router'
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  height: 100vh;
+  height: 70vh;
 }
 
 .images-section {
@@ -63,7 +63,7 @@ import { RouterLink } from 'vue-router'
 }
 
 .titulo span {
-  color: #045203;
+  color: #0d9e0a;
 }
 
 .botao{
@@ -85,7 +85,7 @@ import { RouterLink } from 'vue-router'
 .subtitulo {
   font-size: 40px;
   font-weight: bold;
-  color: #000000;
+  color: #ffffff;
     /* Cria uma leve aura clara ao redor das letras para desgrudar do fundo escuro */
   text-shadow: 0px 0px 40px rgba(255, 255, 255, 0.6); 
 }
