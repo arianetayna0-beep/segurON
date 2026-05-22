@@ -45,7 +45,7 @@ async function fazerLogin() {
             return
         }
  
-        router.push('/dashboard')
+        router.push('/app')
     } finally {
         loading.value = false
     }

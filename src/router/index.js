@@ -5,6 +5,9 @@ import Login from '../views/Login.vue'
 import Dashboard from '../views/Dashboard.vue'
 import Estoque from '../views/Estoque.vue'
 import Entrega from '../views/Entrega.vue'
+import Relatorio from '../views/Relatorios.vue'
+import Relatorios from '../views/Relatorios.vue'
+
 
 const routes = [
   {
@@ -44,7 +47,7 @@ const routes = [
       { 
         path: 'relatorio', 
         name: 'relatorio', 
-        component: () => import('../views/Relatorios.vue') 
+        component: Relatorios
       },
       
       // Outras rotas internas
