@@ -21,9 +21,9 @@
           <span>Entregas de EPI</span>
         </RouterLink>
 
-        <RouterLink to="/app/relatorio" class="menu-item" active-class="active">
+        <RouterLink to="/app/estoque" class="menu-item" active-class="active">
           <i class="fas fa-chart-bar"></i>
-          <span>Relatório</span>
+          <span>Estoque</span>
         </RouterLink>
       </nav>
 
