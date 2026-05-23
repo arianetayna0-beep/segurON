@@ -100,6 +100,12 @@
 
       <section class="card-table">
 
+        <div class="status-bar">
+          <p v-if="loading" class="status-text">Carregando funcionários...</p>
+          <p v-if="errorMessage" class="error-text">{{ errorMessage }}</p>
+          <p v-else-if="!loading && funcionarios.length === 0" class="status-text">Nenhum funcionário encontrado.</p>
+        </div>
+
         <table class="styled-table">
 
           <thead>
@@ -176,6 +182,8 @@ import { useSupabase } from '../composables/useSupabase'
 const { supabase } = useSupabase()
 
 const funcionarios = ref([])
+const errorMessage = ref('')
+const loading = ref(false)
 
 const editandoId = ref(null)
 
@@ -187,6 +195,8 @@ const form = reactive({
 })
 
 const carregar = async () => {
+  loading.value = true
+  errorMessage.value = ''
 
   const { data, error } = await supabase
     .from('funcionarios')
@@ -197,17 +207,19 @@ const carregar = async () => {
   console.log('ERROR:', error)
 
   if (error) {
-
     console.error(error.message)
-
+    errorMessage.value = error.message || 'Erro ao carregar funcionários.'
+    funcionarios.value = []
   } else {
-
     funcionarios.value = data || []
-
+    errorMessage.value = ''
   }
+
+  loading.value = false
 }
 
 const salvar = async () => {
+  errorMessage.value = ''
 
   if (editandoId.value) {
 
@@ -218,6 +230,7 @@ const salvar = async () => {
 
     if (error) {
       console.error(error.message)
+      errorMessage.value = error.message || 'Erro ao atualizar funcionário.'
       return
     }
 
@@ -229,6 +242,7 @@ const salvar = async () => {
 
     if (error) {
       console.error(error.message)
+      errorMessage.value = error.message || 'Erro ao cadastrar funcionário.'
       return
     }
   }
@@ -299,7 +313,7 @@ onMounted(carregar)
 
 .header-section h1 {
   font-size: 1.8rem;
-  color: #0f172a;
+  color: #000000;
   margin-bottom: 6px;
 }
 
@@ -322,6 +336,23 @@ onMounted(carregar)
   padding: 12px 20px;
   border-bottom: 1px solid #e2e8f0;
   font-weight: bold;
+}
+
+.status-bar {
+  padding: 12px 20px;
+  border-bottom: 1px solid #e2e8f0;
+  background: #f8fafc;
+}
+
+.status-text {
+  margin: 0;
+  color: #475569;
+}
+
+.error-text {
+  margin: 0;
+  color: #b91c1c;
+  font-weight: 600;
 }
 
 .main-form {
@@ -357,7 +388,7 @@ select {
 input:focus,
 select:focus {
   outline: none;
-  border-color: #2563eb;
+  border-color: #1c5c03;
 }
 
 .action-bar {
@@ -374,7 +405,7 @@ select:focus {
 }
 
 .btn-primary {
-  background: #2563eb;
+  background: #1c5c03;
   color: white;
 }
 
@@ -407,7 +438,7 @@ select:focus {
 
 .badge {
   background: #dbeafe;
-  color: #1d4ed8;
+  color: #1c5c03;
   padding: 4px 10px;
   border-radius: 12px;
   font-size: 0.72rem;
@@ -423,7 +454,7 @@ select:focus {
 }
 
 .edit {
-  color: #2563eb;
+  color: #1c5c03;
   margin-right: 10px;
 }
 
