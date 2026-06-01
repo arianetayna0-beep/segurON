@@ -224,6 +224,7 @@ async function sair() {
   }
 }
 
+
 @media (max-width: 480px) {
   .sidebar {
     width: 100%;
