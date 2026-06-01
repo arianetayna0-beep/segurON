@@ -5,9 +5,9 @@ import Login from '../views/Login.vue'
 import Dashboard from '../views/Dashboard.vue'
 import Estoque from '../views/Estoque.vue'
 import Entrega from '../views/Entrega.vue'
-import Relatorio from '../views/Relatorios.vue'
-import Relatorios from '../views/Relatorios.vue'
-
+import Relatorios from '../views/Relatorios.vue' // Corrigido o nome da importação para bater com o uso abaixo
+import Cadastro from '../views/Cadastro.vue'
+import Sobre from '../views/Sobre.vue'
 
 const routes = [
   {
@@ -21,8 +21,18 @@ const routes = [
     component: Login
   },
   {
+    path: '/sobre',
+    name: 'Sobre',
+    component: Sobre
+  },
+  {
+    path: '/cadastro',
+    name: 'Cadastro',
+    component: Cadastro
+  },
+  {
     path: '/app',
-    name: 'Dashboard',
+    // name removido daqui para eliminar o "Vue Router warn" no console
     component: Dashboard, // Layout com a Sidebar e o <RouterView />
     meta: { requiresAuth: true },
     children: [
@@ -36,7 +46,7 @@ const routes = [
         component: () => import('../views/CadastroFuncionario.vue') 
       },
       
-      // Bate com o link: to="/app/entregas" (Corrigido para plural!)
+      // Bate com o link: to="/app/entregas"
       { 
         path: 'entregas', 
         name: 'entregas', 
@@ -47,7 +57,7 @@ const routes = [
       { 
         path: 'relatorio', 
         name: 'relatorio', 
-        component: Relatorios
+        component: Relatorios // Corrigido para bater com a importação lá de cima
       },
       
       // Outras rotas internas

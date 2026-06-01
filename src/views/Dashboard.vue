@@ -184,8 +184,9 @@ async function sair() {
   width: 100%;
 }
 
+
 .botao-sair:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgb(182, 0, 0);
 }
 
 .botao-sair:active {
