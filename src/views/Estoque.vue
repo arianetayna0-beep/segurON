@@ -1,17 +1,6 @@
 <template>
     <div class="layout-container">
 
-        <header class="header-section flex-between">
-            <div>
-                <h1>Controle de Estoque</h1>
-                <p>Gerencie o saldo e a disponibilidade de cada EPI.</p>
-            </div>
-
-            <button class="btn btn-outline flex-center" @click="carregar" :disabled="loading">
-                Atualizar
-            </button>
-        </header>
-
         <div class="card-form">
             <div class="card-header">
                 <h2>Ajustar Quantidade</h2>
@@ -167,31 +156,50 @@ async function carregar() {
     loading.value = true
     erro.value = ''
 
-    const { data, error } = await supabase
-        .from('epis')
-        .select('*')
-        .order('nome')
+    try {
 
-    if (error) {
+        const { data: episData, error: episError } = await supabase
+            .from('epis')
+            .select('*')
+            .order('nome')
 
-        erro.value = error.message
+        if (episError) throw episError
 
-    } else {
+        const { data: estoqueData, error: estoqueError } = await supabase
+            .from('estoque')
+            .select('*')
 
-        estoque.value = data || []
+        if (estoqueError) throw estoqueError
+
+        const estoqueMap = {}
+
+        estoqueData.forEach(item => {
+            estoqueMap[item.id_epi] = item.quantidade
+        })
+
+        estoque.value = episData.map(epi => ({
+            ...epi,
+            quantidade: estoqueMap[epi.id_epi] ?? 0
+        }))
+
+    } catch (e) {
+
+        console.error(e)
+        erro.value = e.message
+
+    } finally {
+
+        loading.value = false
 
     }
-
-    loading.value = false
 }
-
 async function atualizar() {
 
     erro.value = ''
     ok.value = false
 
     const { error } = await supabase
-        .from('epis')
+        .from('estoque')
         .update({
             quantidade: form.value.quantidade
         })
@@ -317,7 +325,7 @@ select {
 input:focus,
 select:focus {
   outline: none;
-  border-color: #2563eb;
+  border-color: #1c5c;
 }
 
 .action-bar {
@@ -334,7 +342,7 @@ select:focus {
 }
 
 .btn-primary {
-  background: #2563eb;
+  background: #1c5c03;
   color: white;
 }
 

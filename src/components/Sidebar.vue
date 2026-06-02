@@ -96,7 +96,7 @@ async function sair() {
 /* ===== SIDEBAR: Menu lateral fixo ===== */
 .sidebar {
   width: 250px;
-  background-color: #003D99;
+  background-color: #1c5c03;
   color: #FFFFFF;
   padding: 30px 20px;
   display: flex;
