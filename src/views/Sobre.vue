@@ -1,118 +1,114 @@
 <template>
-  <div class="container-sobre">
-    <div class="sobre-box">
-      <h1 class="titulo">Sobre o Sistema</h1>
-      <p class="descricao">
-        Este é um sistema desenvolvido para o gerenciamento e controle de **Equipamentos de Proteção Individual (EPIs)**. 
-        Nosso objetivo é facilitar o controle de estoque, entrega e relatórios de conformidade de segurança para empresas e funcionários.
-      </p>
-      
-      <div class="funcionalidades">
-        <h3>Principais Recursos:</h3>
-        <ul>
-          <li><i class="fas fa-check"></i> Gestão de Funcionários e setores.</li>
-          <li><i class="fas fa-check"></i> Controle rigoroso de estoque de EPIs.</li>
-          <li><i class="fas fa-check"></i> Histórico de entregas e devoluções.</li>
-          <li><i class="fas fa-check"></i> Relatórios rápidos para auditoria.</li>
-        </ul>
-      </div>
+  <div class="pagina">
+    <AppHeader />
 
-      <button @click="voltar" class="botao-voltar">Voltar</button>
+    <main class="sobre-container">
+    <div class="sobre-card">
+      <h1>Sobre o SegurON</h1>
+
+      <p>
+        O <strong>SegurON</strong> é um sistema de controle de Equipamentos de
+        Proteção Individual (EPIs) desenvolvido pelos estudantes
+        <strong>Gabriela Fernandes</strong>,
+        <strong>Ariane Macedo</strong> e
+        <strong>Maicon Oliveira</strong>.
+      </p>
+
+      <p>
+        Este sistema foi criado para auxiliar empresas no gerenciamento e
+        controle de EPIs, oferecendo uma solução prática e eficiente para o
+        acompanhamento de estoque, entregas e conformidade com as normas de
+        segurança do trabalho.
+      </p>
+
+      <p>
+        Nosso objetivo é facilitar o controle de estoque, entrega e geração de
+        relatórios, contribuindo para uma gestão mais organizada e segura para
+        empresas e funcionários.
+      </p>
+
+      <h2>Principais Recursos</h2>
+
+      <ul>
+        <li>Gestão de funcionários e setores;</li>
+        <li>Controle rigoroso de estoque de EPIs;</li>
+        <li>Histórico de entregas e devoluções;</li>
+        <li>Relatórios rápidos para auditorias;</li>
+        <li>Rastreamento completo dos equipamentos entregues;</li>
+        <li>Maior controle e conformidade com normas de segurança.</li>
+      </ul>
+
+      <div class="missao">
+        <h2>Nossa Missão</h2>
+        <p>
+          Promover uma gestão eficiente dos Equipamentos de Proteção Individual,
+          garantindo mais segurança, organização e praticidade no ambiente de
+          trabalho.
+        </p>
+      </div>
     </div>
+    </main>
+
+    <Footer />
   </div>
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router'
-
-const router = useRouter()
-
-function voltar() {
-  // Se o usuário estiver logado, manda para o app, senão vai para a home/login
-  router.back() 
-}
+import AppHeader from '../components/AppHeader.vue'
+import Footer from '../components/Footer.vue'
 </script>
 
 <style scoped>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.container-sobre {
+.sobre-container {
+  min-height: 100vh;
+  background: #3d8127;
+  padding: 50px 20px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  width: 100vw;
-  background-color: #F0F2F5;
-  padding: 20px;
 }
 
-.sobre-box {
-  width: 100%;
-  max-width: 600px;
+.sobre-card {
+  max-width: 900px;
+  background: white;
   padding: 40px;
-  border-radius: 20px;
-  background-color: #FFFFFF;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.titulo {
-  font-size: 28px;
-  color: #1A1D21;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-.descricao {
-  font-size: 16px;
-  color: #5F6368;
-  line-height: 1.6;
-  margin-bottom: 25px;
-}
-
-.funcionalidades {
+h1 {
+  color: #3d8127;
+  text-align: center;
   margin-bottom: 30px;
+  font-size: 2.5rem;
 }
 
-.funcionalidades h3 {
-  font-size: 16px;
-  color: #1B5E20;
-  margin-bottom: 12px;
+h2 {
+  color: #3d8127;
+  margin-top: 30px;
+  margin-bottom: 15px;
 }
 
-.funcionalidades ul {
-  list-style: none;
+p {
+  line-height: 1.8;
+  color: #444;
+  text-align: justify;
+  margin-bottom: 15px;
 }
 
-.funcionalidades li {
-  font-size: 14px;
-  color: #3C4043;
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+ul {
+  margin-left: 20px;
 }
 
-.funcionalidades i {
-  color: #1B5E20;
+li {
+  margin-bottom: 10px;
+  color: #444;
 }
 
-.botao-voltar {
-  padding: 12px 24px;
-  background-color: #1B5E20;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 10px;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.botao-voltar:hover {
-  background-color: #144616;
+.missao {
+  margin-top: 30px;
+  padding: 20px;
+  background: #f0f8ed;
+  border-left: 5px solid #3d8127;
+  border-radius: 8px;
 }
 </style>
