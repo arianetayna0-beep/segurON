@@ -93,7 +93,8 @@ function irParaHome() {
   router.push('/') // Redireciona para a rota raiz do sistema
 }
 
-// ===== FUNÇÃO PRINCIPAL: FAZER LOGIN =====
+
+
 async function fazerLogin() {
   erro.value = ''
 
