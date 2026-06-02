@@ -1,11 +1,5 @@
 <template>
   <div class="layout-container">
-
-    <header class="header-section">
-      <h1>Controle de Efetivo</h1>
-      <p>Gerencie o cadastro de colaboradores e organize por setores.</p>
-    </header> 
-
     <main class="content">
 
       <section class="card-form">
@@ -39,7 +33,7 @@
                 v-model="form.matricula"
                 type="text"
                 id="matricula"
-                placeholder="Ex: 5542"
+                placeholder="Ex: MAT5542"
                 required
               >
             </div>
@@ -67,7 +61,7 @@
                 v-model="form.cargo"
                 type="text"
                 id="cargo"
-                placeholder="Ex: Pedreiro"
+                placeholder="Ex: Desenvolvedor"
                 required
               >
             </div>
@@ -302,7 +296,6 @@ onMounted(carregar)
   max-width: 1200px;
   margin: 0 auto;
   padding: 30px;
-  background-color: #f8fafc;
   min-height: 100vh;
   font-family: sans-serif;
 }
