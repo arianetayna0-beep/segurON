@@ -2,7 +2,7 @@
   <div class="container-login">
     
     <button @click="irParaHome" class="botao-flutuante-voltar" title="Voltar para a Página Inicial">
-      <i class="fas fa-arrow-left"></i>
+      <i class="pi pi-arrow-left"></i>
     </button>
 
     <div class="modal-box">
@@ -76,6 +76,7 @@
 import { ref } from 'vue'
 import { useSupabase } from '../composables/useSupabase'
 import { useRouter } from 'vue-router'
+
 
 // ===== CONFIGURAÇÃO =====
 const { supabase } = useSupabase()
