@@ -6,7 +6,7 @@
       <!-- Logo/Título do sistema -->
       <h1 class="logo">
         <i class="fas fa-shield-alt"></i>
-        Sistema EPI
+        SegurON
       </h1>
 
       <!-- Menu de navegação ajustado -->
@@ -70,10 +70,10 @@ async function sair() {
     } else {
       console.warn("Supabase não inicializado, redirecionando apenas localmente.")
     }
-    router.push('/login')
+    router.push('/')
   } catch (err) {
     console.error('Erro ao fazer logout:', err)
-    router.push('/login')
+    router.push('/')
   }
 }
 </script>

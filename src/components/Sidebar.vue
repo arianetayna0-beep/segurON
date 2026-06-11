@@ -6,7 +6,7 @@
       <!-- Logo/Título do sistema -->
       <h1 class="logo">
         <i class="fas fa-shield-alt"></i>
-        Sistema EPI
+        SegurON
       </h1>
 
       <!-- Menu de navegação ajustado para bater com o arquivo de rotas (/app/...) -->

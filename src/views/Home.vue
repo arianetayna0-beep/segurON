@@ -1,21 +1,27 @@
 <template>
   <div class="background">
     <AppHeader />
+
     <div class="home-content">
       <div class="conteudo">
         <h1 class="titulo">segur<span>ON</span></h1>
         <h2 class="subtitulo">Segurança que faz a diferença.</h2>
       </div>
     </div>
+
     <div class="image-section">
       <img src="../assets/Homesite2.jpg" alt="Imagem de Segurança" class="images-section">
       <img src="../assets/Homesite1.jpg" alt="Imagem de Segurança" class="images-section">
     </div>
+
+    <Footer />
+
   </div>
 </template>
 
 <script setup>
 import AppHeader from '../components/AppHeader.vue'
+import Footer from '../components/Footer.vue'
 import { RouterLink } from 'vue-router'
 </script>
 
@@ -39,7 +45,7 @@ import { RouterLink } from 'vue-router'
   margin-top: 3rem;
 }
 
-.image-section{
+.image-section {
   display: flex;
   justify-content: center;
   gap: 5rem;
@@ -58,15 +64,15 @@ import { RouterLink } from 'vue-router'
   font-size: 5rem;
   font-weight: bold;
   color: white;
-    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6);
-  
+  text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6);
+
 }
 
 .titulo span {
   color: #0d9e0a;
 }
 
-.botao{
+.botao {
   width: 10rem;
   height: 3rem;
   border-radius: 1rem;
@@ -76,7 +82,7 @@ import { RouterLink } from 'vue-router'
   cursor: pointer;
 }
 
-.botao:hover{
+.botao:hover {
   background-color: #3d8127;
   color: white;
   transition: 0.3s;
@@ -86,8 +92,8 @@ import { RouterLink } from 'vue-router'
   font-size: 40px;
   font-weight: bold;
   color: #ffffff;
-    /* Cria uma leve aura clara ao redor das letras para desgrudar do fundo escuro */
-  text-shadow: 0px 0px 40px rgba(255, 255, 255, 0.6); 
+  /* Cria uma leve aura clara ao redor das letras para desgrudar do fundo escuro */
+  text-shadow: 0px 0px 40px rgba(255, 255, 255, 0.6);
 }
 
 .botao {
@@ -102,5 +108,28 @@ import { RouterLink } from 'vue-router'
 
 .imagem {
   border-radius: 10px;
+}
+
+.footer {
+  background: white;
+  border-top: 1px solid #ddd;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.ano {
+  position: absolute;
+  left: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.slogan {
+  color: #333;
+  font-size: 16px;
+  font-style: italic;
 }
 </style>
