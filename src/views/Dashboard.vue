@@ -9,6 +9,7 @@
         SegurON
       </h1>
 
+      
       <!-- Menu de navegação ajustado -->
       <nav class="menu">
         <RouterLink to="/app/funcionarios" class="menu-item" active-class="active">
