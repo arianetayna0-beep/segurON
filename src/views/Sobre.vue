@@ -7,7 +7,7 @@
         <h1>Sobre o SegurON</h1>
 
         <p>
-          O <strong>SegurON</strong> é um sistema de controle de Equipamentos de
+          O <strong>SegurON</strong> é um sistema de controle de equipamentos de
           Proteção Individual (EPIs) desenvolvido pelos estudantes de 
           <strong>Análise e Desenvolvimento de Sistemas</strong> 
           pela Escola e Faculdade de Tecnologia Senai Roberto Mange:
