@@ -4,7 +4,7 @@
 
     <div class="navbar__marca">                                                    <!-- agrupa apenas o logo -->
       <img
-        src="../assets/logo.png"                                                   <!-- caminho da imagem do logo -->
+        src="../assets/Logo.png"                                                   <!-- caminho da imagem do logo -->
         alt="Logo EPI"                                                             <!-- texto se a imagem não carregar -->
         class="navbar__logo"                                                       <!-- classe CSS que define o tamanho do logo -->
       />                                                                           <!-- tag img não tem fechamento -->
