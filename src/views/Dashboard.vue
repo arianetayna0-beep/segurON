@@ -9,6 +9,7 @@
         SegurON
       </h1>
 
+
       <!-- Menu de navegação ajustado -->
       <nav class="menu">
         <RouterLink to="/app/funcionarios" class="menu-item" active-class="active">
@@ -16,6 +17,7 @@
           <span>Funcionários</span>
         </RouterLink>
 
+        
         <RouterLink to="/app/entregas" class="menu-item" active-class="active">
           <i class="fas fa-box"></i>
           <span>Entregas de EPI</span>
